@@ -1,5 +1,3 @@
-
-
 # Logical Gates
 * takes one electrical computer, can determine how computer processes information
 * basic gates
@@ -10,6 +8,7 @@
   * NOR - opposite of OR, turn only if A and B are zero
   * XOR - exclusive or, turn only if one value is turn (e.g., soup or salad), one or the other
   * XNOR - opposite of XOR
+* Can be used to create a logical circuit
 
 ## Truth Table
 | A | B | AND | OR | NOT (A) | NAND | NOR | XOR | XNOR |
@@ -24,8 +23,16 @@
 ![Logical Gates](logical-gates.jpeg)
 *source: https://www.codeproject.com/KB/cs/UnderstandingLogicGates/image.jpg*
 
-# Circuit Simplification
+# Logic Circuit
+## Example
+![Logic Circuit Example](example-logic-circuit.png)
+*source: https://youtu.be/q2OBYz3K6PM*
 
+## Note
+* Be careful some gates won't work, as they're circular
+* Always simplify the circuit before you create the logical gate
+ * Use less circuits in real life
+ * How: factor out terms 
 
-
-
+# Resources
+* https://youtu.be/q2OBYz3K6PM
