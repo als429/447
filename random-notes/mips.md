@@ -59,6 +59,7 @@
 * how many? 32
       * r0 -> r31
 * how big is each? 32 bits
+* each register called? a word
 
 |     | Register file                       |
 |-----|-------------------------------------|
@@ -74,14 +75,55 @@
 
 * **values for instructions must come from the register**
 * r0 is always zero (0)
-* 
+
+# 1.3 Memory Organization (versus Register)
+* MIPS is a load-store register file machine
+      *  meaing: instructions computer only on data in the register file
+* memory = big and slow, most of the data is stored here
+* register = small (32 registers x 32 bits) and fast
+
+## Load-store architecture
+* Data must be transfered from memory to the register file to use it
+* **Load**: load from from memory to the register file; `lw`
+* **Store**: store data to the memory from the register; `sw`
+
+## Memory organization
+* in MIPS, memory is a large one-dimensional aray 
+* each location is one byte (8 bits) ((IMPORTANT: Registers are 4 bytes, i.e., 32 bits))
+* memory addresses indexes into the array 
+   * for a 32-bit computer, there are 2<sup>32</sup> locations
+         * largest address = 2<sup>32</sup> - 1
+
+| Address                                | Memory                                      |
+|----------------------------------------|---------------------------------------------|
+| 4,294,967,295 (i.e., 2<sup>32</sup>-1) | memory holds 8 bits of data (i.e., 2 bytes) |
+| 4,294,967,294                          |                                             |
+| ...                                    |                                             |
+| ...                                    |                                             |
+| ...                                    |                                             |
+| ...                                    |                                             |
+| 2                                      |                                             |
+| 1                                      |                                             |
+| 0                                      |                                             |
+
+## Memory vs. Registers
+* it takes 4x memory addresses to fill up 1x registers (or 1x word or 32 bits)
+* **4x memory addresses = 1x register**
+
+|                                 | Memory                            | Register                     |
+|---------------------------------|-----------------------------------|------------------------------|
+| Locations                       | +4 billion addresses (for 32-bit) | 32 registers                 |
+| Speed                           | Slow                              | Fast                         |
+| Each address holds (bits)       | 8                                 | 32                           |
+| Each address holds (bytes)      | 1                                 | 4 (32 bits/(8 bits / 1byte)) |
+| Each address holds (hex values) | 1/2                               | 2                            |
+
+## Viewing memory/ alignment 
+* **word-aligned**: looking at data in terms of a word (numbering each based 32 bit groupings)
+* **byte-addressable**: looking at data in multiples of bytes
 
 
-# 1.3 Registers and Memory
-
-
-
-
+# 1.4 Instruction Execution Model
 
 
 
