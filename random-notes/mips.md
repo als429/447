@@ -122,11 +122,21 @@
 * **word-aligned**: looking at data in terms of a word (numbering each based 32 bit groupings)
 * **byte-addressable**: looking at data in multiples of bytes
 
-
 # 1.4 Instruction Execution Model
+* n/a
 
+# 1.5 Data Operation Instructions
+## Data Operations
+* we have: memory, register, ALU (arithmatic logic unit) (i.e., the thing doing te mathmatic computations), and program counter
+* what is the process?
+      1. program counter holds the instruction address
+      2. instructions are fetched from meory into the instruction register
+      3. control logic decodes the instruction and tells the ALU and register file what to do
+      4. ALU executes the instruction and results flow back into the register file
+      5. the control logic updates the program counter for the next instruction
+            * Note: the program counter must increment **4 bytes** to go to the next instruction
 
-
+# 1.6 Data Transfer Instructions
 
 
 
