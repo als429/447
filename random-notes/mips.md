@@ -160,12 +160,12 @@
 * sequencing instructions make decisions
       * change the control flow of the program (i..e, what instruction to execute next)
 * MIPS Instructions
-      * conditional branch (if)
-            * `bne r0, r1, label`         # branch if not equal to label (meaning: if r0 != r1 go to label)
-            * `beq r0, r1, label`         # branch if equal to label (meaning: if r0 == r1 go to label)
-      * unconditional branch (jump/skip)
-            * `j label`                   # jump to label (no matter what)
-                  * use within an if branch to skip over else if if is true
+   * conditional branch (if)
+      * `bne r0, r1, label`         # branch if not equal to label (meaning: if r0 != r1 go to label)
+      * `beq r0, r1, label`         # branch if equal to label (meaning: if r0 == r1 go to label)
+   * unconditional branch (jump/skip)
+      * `j label`                   # jump to label (no matter what)
+           * use within an if branch to skip over else if if is true
 * what needs to be updates in the processor to take a branch? answer: program counter
       * on a branch we need to put the correct value in the program counter so we know which instruction to fetch from memory to go down the right control path
 * what is the process for sequencing instructions?
@@ -176,6 +176,7 @@
            * meaning: move 3 insruction ahead, this means: we need to move 4 bytes ahead in memory (b/c each instruction is 4 bytes)
                * note: we also multiply by 4, to convert to a byte address
       4. the control **always adds 4** to the prgram counter
+
 * e.g., `bne r0, r1, 3`  # if the value in r0 (i.e., zero) != the value in r1, then move 3 instructs ahead
 * Notes: for unconditional jumps control replaces the program counter with the constant from the instruction
 * IMPORTANT NOTE: `bne` and `beq`**ONLY** compare register with registers
