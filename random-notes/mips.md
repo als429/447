@@ -174,17 +174,16 @@
       * on a branch we need to put the correct value in the program counter so we know which instruction to fetch from memory to go down the right control path
 
 * what is the process for sequencing instructions?
+
       1. ALU compares registers (are the two values in the register not equal?)
-
-* tl;dr: the ALU uses subtraction and checks if the difference is zero
-
       2. Result tells the control whether to branch (if not equal go to the specified location)
-      3. If the branch is taken (i.e., they're not equal), then the control adds a constant from the instruction to the program counter
-      
+      3. If the branch is taken (i.e., they're not equal), then the control adds a constant from the instruction to the program counte
+      4. the control **always adds 4** to the prgram counter
+
+* tl;dr: the ALU uses subtraction and checks if the difference is zero 
 * meaning: move 3 insruction ahead, this means: we need to move 4 bytes ahead in memory (b/c each instruction is 4 bytes)
    * note: we also multiply by 4, to convert to a byte address
       
-      4. the control **always adds 4** to the prgram counter
 
 * e.g., `bne r0, r1, 3`  # if the value in r0 (i.e., zero) != the value in r1, then move 3 instructs ahead
 * Notes: for unconditional jumps control replaces the program counter with the constant from the instruction
