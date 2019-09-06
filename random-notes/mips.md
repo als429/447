@@ -55,10 +55,29 @@
 | jump register              | `jr r31`           | go to r31                                |
 | jump and link              | `jal 145`          | r31 = PC + 4; go to 145                  |
 
+## Registers in MIPS
+* how many? 32
+      * r0 -> r31
+* how big is each? 32 bits
+
+|     | Register file                       |
+|-----|-------------------------------------|
+| r0  | 0 (r0 is always zero)               |
+| r1  | --MIPS registers can hold 32 bits-- |
+| r2  |                                     |
+| ..  |                                     |
+|     |                                     |
+|     |                                     |
+| r29 | used for function calls             |
+| r30 | used for function calls             |
+| r31 |                                     |
+
+* **values for instructions must come from the register**
+* r0 is always zero (0)
+* 
 
 
-
-
+# 1.3 Registers and Memory
 
 
 
