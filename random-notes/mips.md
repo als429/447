@@ -140,10 +140,12 @@
 # 1.6 Data Transfer Instructions
 * we have: adding a memory address and a data register + *everything we had for data operation instructions*
 * what is the process of data transfer instructions (think: load/store)?
+
    1. ALU generates our address
    2. Add a memory address register
    3. Results to/from memory are sotred in a memory data register
    4. data from memory can nor be stored back into the register file (or to memory can be written)
+   
 * IMPORTANT NOTE: We had to have the memory address in a register to access, to know where we wanted to access
 * we can also add an offset (e.g, `lw r6, 4(r5)`
       * this takes the memory address in r5 and adds 4 bytes to get to the memory address that is 4 bytes away
@@ -167,7 +169,6 @@
 * what needs to be updates in the processor to take a branch? answer: program counter
       * on a branch we need to put the correct value in the program counter so we know which instruction to fetch from memory to go down the right control path
 * what is the process for sequencing instructions?
-      * e.g., `bne r0, r1, 3`  # if the value in r0 (i.e., zero) != the value in r1, then move 3 instructs ahead
       1. ALU compares registers (are the two values in the register not equal?)
             * tl;dr: the ALU uses subtraction and checks if the difference is zero
       2. Result tells the control whether to branch (if not equal go to the specified location)
@@ -175,7 +176,8 @@
            * meaning: move 3 insruction ahead, this means: we need to move 4 bytes ahead in memory (b/c each instruction is 4 bytes)
                * note: we also multiply by 4, to convert to a byte address
       4. the control **always adds 4** to the prgram counter
-      * Notes: for unconditional jumps control replaces the program counter with the constant from the instruction
+* e.g., `bne r0, r1, 3`  # if the value in r0 (i.e., zero) != the value in r1, then move 3 instructs ahead
+* Notes: for unconditional jumps control replaces the program counter with the constant from the instruction
 * IMPORTANT NOTE: `bne` and `beq`**ONLY** compare register with registers
       * So if we want to compare a value in a register with a constant we first have to load the constant into a register and then compare the registers
       
