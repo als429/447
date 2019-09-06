@@ -135,11 +135,26 @@
       4. ALU executes the instruction and results flow back into the register file
       5. the control logic updates the program counter for the next instruction
             * Note: the program counter must increment **4 bytes** to go to the next instruction
+![Addition and Subtraction Example](add-sub-ex.png)
 
 # 1.6 Data Transfer Instructions
+* we have: adding a memory address and a data register + *everything we had for data operation instructions*
+* what is the process of data transfer instructions (think: load/store)?
+   1. ALU generates our address
+   2. Add a memory address register
+   3. Results to/from memory are sotred in a memory data register
+   4. data from memory can nor be stored back into the register file (or to memory can be written)
+* IMPORTANT NOTE: We had to have the memory address in a register to access, to know where we wanted to access
+* we can also add an offset (e.g, `lw r6, 4(r5)`
+      * this takes the memory address in r5 and adds 4 bytes to get to the memory address that is 4 bytes away
+* for stores (to memory) we need:
+      * **address** from the ALU
+      * **data** to store from the register
+      * e.g., `sw r6, r5` 
+            * r6: what we are storing, data
+            * r5: destination in memory, address
 
-
-
+# 1.6 Sequencing Instructions
 
 
 
