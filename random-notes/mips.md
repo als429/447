@@ -129,12 +129,15 @@
 ## Data Operations
 * we have: memory, register, ALU (arithmatic logic unit) (i.e., the thing doing te mathmatic computations), and program counter
 * what is the process?
+
       1. program counter holds the instruction address
       2. instructions are fetched from meory into the instruction register
       3. control logic decodes the instruction and tells the ALU and register file what to do
       4. ALU executes the instruction and results flow back into the register file
       5. the control logic updates the program counter for the next instruction
-            * Note: the program counter must increment **4 bytes** to go to the next instruction
+
+* Note: the program counter must increment **4 bytes** to go to the next instruction
+
 ![Addition and Subtraction Example](add-sub-ex.png)
 
 # 1.6 Data Transfer Instructions
@@ -166,24 +169,32 @@
    * unconditional branch (jump/skip)
       * `j label`                   # jump to label (no matter what)
            * use within an if branch to skip over else if if is true
+           
 * what needs to be updates in the processor to take a branch? answer: program counter
       * on a branch we need to put the correct value in the program counter so we know which instruction to fetch from memory to go down the right control path
+
 * what is the process for sequencing instructions?
       1. ALU compares registers (are the two values in the register not equal?)
-            * tl;dr: the ALU uses subtraction and checks if the difference is zero
+
+* tl;dr: the ALU uses subtraction and checks if the difference is zero
+
       2. Result tells the control whether to branch (if not equal go to the specified location)
       3. If the branch is taken (i.e., they're not equal), then the control adds a constant from the instruction to the program counter
-           * meaning: move 3 insruction ahead, this means: we need to move 4 bytes ahead in memory (b/c each instruction is 4 bytes)
-               * note: we also multiply by 4, to convert to a byte address
+      
+* meaning: move 3 insruction ahead, this means: we need to move 4 bytes ahead in memory (b/c each instruction is 4 bytes)
+   * note: we also multiply by 4, to convert to a byte address
+      
       4. the control **always adds 4** to the prgram counter
 
 * e.g., `bne r0, r1, 3`  # if the value in r0 (i.e., zero) != the value in r1, then move 3 instructs ahead
 * Notes: for unconditional jumps control replaces the program counter with the constant from the instruction
 * IMPORTANT NOTE: `bne` and `beq`**ONLY** compare register with registers
-      * So if we want to compare a value in a register with a constant we first have to load the constant into a register and then compare the registers
+   * So if we want to compare a value in a register with a constant we first have to load the constant into a register and then compare the registers
       
 # 1.9 MIPS Summary
+* n/a
 
+# 2.1 
 
 # Resource
 * https://www.youtube.com/channel/UC0j4jTCkhMLmGwriVbbBtSw/playlists
