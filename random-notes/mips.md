@@ -219,17 +219,45 @@
       * **R format:** operation, 3 registers, no immediate 
             * used for: arithmatic and logical operations
       * **I format:** operation, 2 registers, 16-bit immediate
-            * used for: load/store, branch, and immediate operation
+            * used for: load/store, branch (bne, beq), and immediate operation
       * **J format:**  jump, 0 registers, 26-bit immediate
-            * used for: jumps
+            * used for: jumps (j)
       
 ![MIPS Instruction Formats](mips-instruction-formats.PNG)
 
 * how do we convert a 16-bit immediate field for use with a 32-bit register?
       * **sign extension**: take the left-most bit and repeat it (jarrett's spreading the peanut butter)
-  
+
+# 2.4 Addresses in Branches and Jumps
+* branch instructions include: bne, beq, j
+* these are not handled the same:
+      * bne, beq = I format = 16-bit immediate
+      * j = J format = 26-bit immediate
+ * but addresses are 32 bits <- how do we handle?
+      * we treat bne/beq as **relative offsets** (i.e., we add to the current program counter)
+      * we treat j as an **absolute value** (i.e., replace 26-bits of the program counters)
+ 
+ * Blue = I format; Green = J format
+      * Note: I format adds 4 to the program counter
+ ![branch and jump addresses logic in bits](branch-jump-bit-logic.PNG)
+ 
+ * why do we have 00 at the ends of the immediate when we calcuate a new instruction for both the brand and jump instructions?
+      * instructions are word-aligned
+      * we always jump by a full instruction (i.e., we don't jump to the middle of an instruction)
+      * we can jump further if the offset is in multiple of 4 bytes
+* how far can you jump with the immediate field in beq/bne instructions?
+      * okay, so we have 16-bits
+      * 2<sup>n</sup> is the amount of space we have in a binary world with n positions
+      * we also have all negative
+      * answer: -2<sup>15</sup> to 2<sup>15</sup>
+* e.g., address + 4 + immediate field * 4 = next address
+
+![calculating where the bne would go](jump-address-example.PNG)
+ 
+ 
+
+
+
 
 # Resource
 * https://www.youtube.com/channel/UC0j4jTCkhMLmGwriVbbBtSw/playlists
-
-
