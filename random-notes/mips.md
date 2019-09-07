@@ -193,7 +193,41 @@
 # 1.9 MIPS Summary
 * n/a
 
-# 2.1 
+# 2.1 ISA pt. 2
+* three basic instruction types: data operations, data transfer, and sequencing (confitional and unconditional)
+* we have in a processor:
+      * memory, register file, ALU (does computation), program counter, instruction register, control (brains), memory address register, data register
+
+# 2.1 Instruction Encodings
+* machines don't understand assembly, must translate to binary
+* e.g., R format
+| opcode (e.g., add, sub, etc.) | rs            | rt       | rd              | shamt        | funct          |
+|-------------------------------|---------------|----------|-----------------|--------------|----------------|
+| 000000                        | binary...     | ...      | ...             | ...          | ...            |
+| operation code                | src1 register | src2 reg | destination ref | shift amount | works w/opcode |
+| 6 bits                        | 5 bits        | 5 bits   | 5 bits          | 5 bits       | 6 bits         |
+* Note: 6*2 + 5*4 = 32 bits for each instruction
+
+# 2.2 Immediate Encodings
+* how can we support small constants within the processor?
+      * creating values in memory (but... they load slow)
+      * hardwire into registers, like r0 (but... we only have so many registers...)
+      * COMPROMISE: send the constant value directly from the controller to the ALU (without storing within a register) <-- what MIPS does
+* so how are we going to deal with this, since we're already using all of the bits in our instruction?
+      * what MIPS designers chose -> different formats for different kinds of instructions
+* MIPS has three instruction formats:
+      * **R format:** operation, 3 registers, no immediate 
+            * used for: arithmatic and logical operations
+      * **I format:** operation, 2 registers, 16-bit immediate
+            * used for: load/store, branch, and immediate operation
+      * **J format:**  jump, 0 registers, 26-bit immediate
+            * used for: jumps
+      
+![MIPS Instruction Formats](mips-instruction-formats.PNG)
+
+* how do we convert a 16-bit immediate field for use with a 32-bit register?
+      * **sign extension**: take the left-most bit and repeat it (jarrett's spreading the peanut butter)
+  
 
 # Resource
 * https://www.youtube.com/channel/UC0j4jTCkhMLmGwriVbbBtSw/playlists
