@@ -254,6 +254,11 @@
 
 ![calculating where the bne would go](jump-address-example.PNG)
  
+ # 2.5 Loading large constants
+ * we use two instructions and combine two 16-bit halves to make one large constant
+      * `lui` # loads the **uppper** 16 bits (aka Load Upper Immediate)
+            * works by first loading number with the lower half having all zeros (note: it is not sign extension)
+      * `ori` # loads the **lower** 16-bits (aka Or Immediate)
  
 
 
