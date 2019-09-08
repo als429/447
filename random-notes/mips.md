@@ -310,7 +310,92 @@
 
 ![](saving-logic-callee-caller-mips-register.PNG)
 
-* 
+* how memory stack is used to preserve register values
+
+![](registers-in-stack.PNG)
+
+| register | name | what is it?                       |
+|----------|------|-----------------------------------|
+| r0       | $0   | constant 0                        |
+| r1       | $at  | reserved temp                     |
+| r2       | $v0  | return value                      |
+| r3       | $v1  | return value                      |
+| r4       | $a0  | argument (for procedure)          |
+| r5       | $a1  | argument register                 |
+| r6       | $a2  | argument register                 |
+| r7       | $a3  | argument register                 |
+| r8       | $t0  | temporary register                |
+| ..       |      | caller save                       |
+| r15      | $t7  | temporaries may be overwritten    |
+| r16      | $s0  | saved registers                   |
+| ..       |      | callee save                       |
+| r23      | $s7  | temps may NOT be overwritten      |
+| r24      | $t8  | caller save: temp                 |
+| r25      | $t9  | caller save: temp                 |
+| r26      | $k0  | reserved for operating sys global |
+| r27      | $k1  | ""                                |
+| r28      | $gp  | ""                                |
+| r29      | $sp  | callee save: stack pointer        |
+| r30      | $fp  | callee save: frame pointer        |
+| r31      | $ra  | callee save: return address       |
+
+* **caller saved registers**: if they are used by the **caller** they **need** to save
+   * if they are used by the **callee**, then they do not need to save
+   * r8-r15 and r24-25
+      * names: $t0-t9
+* **callee saved registers**: if they are used by the **callee** they **need** to save
+   * if they are used by the **caller**, then they do not need to save
+   * r16-23
+      * names: $s0-$s7
+      
+* **caller must save the $t# registers**
+* **callee must save the $s# registers**
+
+* note need to pay attention to what registers I'm **writing** to
+
+* when using the same values need to push and pop around values (i.e., moving the pointer)
+   * push --> move the pointer down (by -8), save/copy caller register values to memory
+   * pop --> restore register values in register, move the pointer back (add +4 back)
+
+* **as long as everyone follows the convention, we get interoperability**
+
+# 2.13 Other ISAs
+## Common ISAs
+* x86 - intel, AMD
+* ARMS - ARM, Samsung, Apple
+* JVM - Java
+* PTX - Nvidia
+* PPC - IBM, Motorola
+* SPARC - Oracle, Fujitsu
+* etc.
+
+## Lots of potential for variation
+* there is a lot of variablility...
+   * machine type: registers versus memory to memory
+   * instruction width
+   * number of instructions
+   * addressing nodes (lots of specific custom types)
+
+# 2.14 the truth about ISAs, they lie (but you can trust them)
+* ISAs present a simple view of the processor:
+   * **atomic:** instructions execute at one time
+   * **sequential:** instructions execute in order
+   * **flat memory:** can access any location easily
+   * **note:** it doesn't *quite* happen this way...
+* like this language: cache is to make memory look faster than it really is (most of the time)
+
+## CICS vs. RISC
+* simple computation are not always simple
+* CISC 
+   * **Complex** instruction set computing
+   * pro: assembly is easier to write (yay!)
+   * con: hardware is *very* complicated by rarely-used instructions, making compilers very challenging to write (boo!)
+   * x86 is very *CISCy* (per Jarrett notes)
+* RISC
+   * **Reduced** instruction set computing
+   * pro: hardware/compiler are easier to design and optimize for (yay!)
+   * con: compiler generates lots of instructions for very simple code (booo!)
+   * MIPS is very *RISCy* (per Jarrett notes); most machines today are RISCy
 
 # Resource
 * https://www.youtube.com/channel/UC0j4jTCkhMLmGwriVbbBtSw/playlists
