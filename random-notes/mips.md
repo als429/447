@@ -260,7 +260,32 @@
             * works by first loading number with the lower half having all zeros (note: it is not sign extension)
       * `ori` # loads the **lower** 16-bits (aka Or Immediate)
  
-
+# 2.7 & 2.8 Procedure calls and jal
+* procedures -> what MIPS calls functions
+   * good b/c DRY
+* what do we need to happen:
+   * need to be able to put data where the procedure can access
+   * need to start the procedure (calculate, put result where the caller can access them)
+   * need to return to the right place
+* terminology:
+   * caller: calls procedure
+   * procedure: is the callee
+   * caller gives the calle the arguments (data)
+   * the callee returns results (data) to the caller
+* how to do a procedure call:
+   * transfer control to the callee to start the procedure
+         * `jal procedureAddress` # jump and link to the procedure address
+         * keeps track of the instruction **after** the `jal` so we can continue in the right place when we are done w/ the procedure
+         * we always know where the procedures are w/ `jal`
+         * stores the return adderess (PC+4) in $ra (r31)
+   * return control to the caller when the procedure is done (i.e., who called us?)
+         * `ja $ra` # jump-return to the address in $ra
+         * this will jump us back to the register is register $ra 
+* it's important to ensure compatibility between procedure calls
+   * i.e., procedures shouldn't write over other's needed register values
+   * note: saving and restoring registers = importante
+   
+# 2.9 Saving and restoring registers
 
 
 
