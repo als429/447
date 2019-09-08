@@ -274,13 +274,13 @@
    * the callee returns results (data) to the caller
 * how to do a procedure call:
    * transfer control to the callee to start the procedure
-         * `jal procedureAddress` # jump and link to the procedure address
-         * keeps track of the instruction **after** the `jal` so we can continue in the right place when we are done w/ the procedure
-         * we always know where the procedures are w/ `jal`
-         * stores the return adderess (PC+4) in $ra (r31)
+      * `jal procedureAddress` # jump and link to the procedure address
+      * keeps track of the instruction **after** the `jal` so we can continue in the right place when we are done w/ the procedure
+      * we always know where the procedures are w/ `jal`
+      * stores the return adderess (PC+4) in $ra (r31)
    * return control to the caller when the procedure is done (i.e., who called us?)
-         * `ja $ra` # jump-return to the address in $ra
-         * this will jump us back to the register is register $ra 
+      * `ja $ra` # jump-return to the address in $ra
+      * this will jump us back to the register is register $ra 
 * it's important to ensure compatibility between procedure calls
    * i.e., procedures shouldn't write over other's needed register values
    * note: saving and restoring registers = importante
