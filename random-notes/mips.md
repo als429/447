@@ -92,7 +92,7 @@
 * each location is one byte (8 bits) ((IMPORTANT: Registers are 4 bytes, i.e., 32 bits))
 * memory addresses indexes into the array 
    * for a 32-bit computer, there are 2<sup>32</sup> locations
-         * largest address = 2<sup>32</sup> - 1
+      * largest address = 2<sup>32</sup> - 1
 
 | Address                                | Memory                                      |
 |----------------------------------------|---------------------------------------------|
@@ -201,11 +201,13 @@
 # 2.1 Instruction Encodings
 * machines don't understand assembly, must translate to binary
 * e.g., R format
+
 | opcode (e.g., add, sub, etc.) | rs            | rt       | rd              | shamt        | funct          |
 |-------------------------------|---------------|----------|-----------------|--------------|----------------|
 | 000000                        | binary...     | ...      | ...             | ...          | ...            |
 | operation code                | src1 register | src2 reg | destination ref | shift amount | works w/opcode |
 | 6 bits                        | 5 bits        | 5 bits   | 5 bits          | 5 bits       | 6 bits         |
+
 * Note: 6*2 + 5*4 = 32 bits for each instruction
 
 # 2.2 Immediate Encodings
