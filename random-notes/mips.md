@@ -288,8 +288,29 @@
    * note: saving and restoring registers = importante
    
 # 2.9 Saving and restoring registers
+* **saving:** copy a register to memory where they won't be overwritten 
+* **restoring:** copy a register back from memory into the original register
+* why do we need to save and restore?
+   * the callee does not know what registers the caller is using 
+      * theoretically it could have multiple different callers at different places within the code...)
+   * same vice versa
+* how do we do it? a stack!
+   * in MIPS we have a special part of memory called the stack for saving registers
+      * the stack pointer ($sp or r29) keeps the address of the end of the stack
+      * in MIPS the stack grows downward
+      * move the stack pointer down when storing more data on the stack
+   * steps:
+      * save data to the stack
+      * during the procedure, keep everything safe in memory
+      * and when we're done pop the callee data from the stack, restoring the rpevious results
+* benefit:
+   * give procedures a secure place to store data that does not fit in registers (think: save registers)
+   * each procedure manages its own stack space so they don't interfere
+* registers:
 
+![](saving-logic-callee-caller-mips-register.PNG)
 
+* 
 
 # Resource
 * https://www.youtube.com/channel/UC0j4jTCkhMLmGwriVbbBtSw/playlists
