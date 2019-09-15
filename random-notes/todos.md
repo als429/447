@@ -1,8 +1,7 @@
 # To do note list
 
-- [ ] lab 2
-- [ ] Jarret's cheatsheet
-- [ ] Jarret's cookbook
+- [ ] Jarret's cheatsheet - take notes
+- [ ] Jarret's cookbook - take notes
 - [ ] Jarret's mini-exercises
 - [ ] Clock time
 - [ ] Multiplexor
@@ -21,3 +20,8 @@
 - [x] signed vs unsigned
 - [x] big vs. little endian
 - [x] basic of endians
+- [x] lab 2
+- [x] typed out examples (arrays and variables)
+- [x] worked through examples 
+- [x] shift/left right in binary
+- [x] review Jarrett's cheatsheet and cookbook
