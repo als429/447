@@ -3,12 +3,12 @@
 ## Questions
 * what does [x] stand for:
   * imm
- * sxt
- * zxt
- * lo16
- * lo8
- * mfhi
- * mflo
+  * sxt
+  * zxt
+  * lo16
+  * lo8
+  * mfhi
+  * mflo
 
 ## Arithmetic + Bitwise Instructions
 
