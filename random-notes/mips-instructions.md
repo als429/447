@@ -1,5 +1,36 @@
 # MIPS Instructions
 
+## Questions
+* what does [x] stand for:
+  * imm
+ * sxt
+ * zxt
+ * lo16
+ * lo8
+ * mfhi
+ * mflo
+
+## Arithmetic + Bitwise Instructions
+
+| Code         | Operation | Description                                               |
+|--------------|-----------|-----------------------------------------------------------|
+| neg a, b     | a = -b    | gives the negative of b                                   |
+| add a, b, c  | a = b + c | adds **signed** numbers                                   |
+| sub a, b, c  | a = b - c | subtracts **signed** numbers                              |
+| mul a, b, c  | a = b * c | give low 32 bits of signed multiplication                 |
+| div a, b, c  | a = b / c | give quotient of signed division                          |
+| rem a, b, c  | a = b % c | give remainder of signed division                         |
+| addu a, b, c | a = b + c | adds unsigned numbers                                     |
+| subu a, b, c | a = b - c | subtracts unsigned numbers                                |
+| mulu a, b, c | a = b * c | give low 32 bits of unsigned multiplication               |
+| divu a, b, c | a = b / c | give quotient of unsigned division                        |
+| remu a, b, c | a = b % c | give remainder of unsigned division                       |
+| mfhi a       | a = HI    | after mul, gives high 32 bits. after div, gives remainder |
+| mflo a       | a = LO    | after mul, gives high 32 bits. after div, gives quotient  |
+| not a, b     | a = ~b    | gives the bitwise complement of b (all bits flipped)      |
+| and a, b, c  | a = b & c | bitwise ANDs numbers                                      |
+| or a, b, c   | a = b | c | bitwise ORs numbers                                       |
+| xor a, b, c  | a = b ^ c | bitwise XORs numbers                                      |
 
 ## Shift Instructions
 
