@@ -1,6 +1,5 @@
 # To do note list
 
-- [ ] Jarret's cheatsheet - take notes
 - [ ] Jarret's mini-exercises
 - [ ] Clock time
 - [ ] Multiplexor
@@ -25,4 +24,5 @@
 - [x] shift/left right in binary
 - [x] review Jarrett's cheatsheet and cookbook
 - [x] Jarret's cookbook - take notes
+- [x] Jarret's cheatsheet - take notes
 
