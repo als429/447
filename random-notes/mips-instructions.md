@@ -2,6 +2,7 @@
 
 
 ## Shift Instructions
+
 | Code           | Operation     | Description                                                |
 |----------------|---------------|------------------------------------------------------------|
 | sll a, b, imm  | a = b << imm  | shift left by a constant amount                            |
@@ -32,5 +33,32 @@
 | push ra       | sp -= 4; MEM[sp] = reg | pushes the value of reg onto the call stack                                     |
 | pop reg       | reg = MEM[sp]; sp+=4   | pops the top call stack value and puts it into reg                              |
 
+## Unconditional Control Flow
+These always change the PC to a new location.
 
+| Code      | Operation               | Description                                               |
+|-----------|-------------------------|-----------------------------------------------------------|
+| j label   | PC = label              | goes to the instruction at label                          |
+| jal label | ra = PC + 4; PC = label | function call to label, stores return address in ra       |
+| jr reg    | PC = reg                | goes to the instruction whose address is in reg, often ra |
+| syscall   | -->                     | runs the system call function whose number is in v0       |
+
+## Conditional Control Flow
+b can be a register or a constant.
+
+| Code             | Operation                 | Description                                       |
+|------------------|---------------------------|---------------------------------------------------|
+| beq a, b, label  | if(a == b) { PC = label } | if a is equal to b, goes to label                 |
+| bne a, b, label  | if(a != b) { PC = label } | if a is NOT equal to b, goes to label             |
+| blt a, b, label  | if(a < b) { PC = label }  | if a is less than to b, goes to label             |
+| ble a, b, label  | if(a <= b) { PC = label } | if a is less than or equal to b, goes to label    |
+| bgt a, b, label  | if(a > b) { PC = label }  | if a is greater than b, goes to label             |
+| bge a, b, label  | if(a >= b) { PC = label } | if a is greater than or equal to b, goes to label |
+| bltu a, b, label | if(a < b) { PC = label }  | same as above, but does an unsigned comparison    |
+| bleu a, b, label | if(a <= b) { PC = label } | same as above, but does an unsigned comparison    |
+| bgtu a, b, label | if(a > b) { PC = label }  | same as above, but does an unsigned comparison    |
+| bgeu a, b, label | if(a >= b) { PC = label } | same as above, but does an unsigned comparison    |
+
+
+## Resource
 https://jarrettbillingsley.github.io/teaching/classes/2201/cs0447/guides/instructions.html
