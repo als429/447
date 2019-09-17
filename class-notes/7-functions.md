@@ -89,6 +89,12 @@ fork:
     * local variables/arguments that can't fit in the registers
 * how do we access the stack?
  * through the **sp** (stack pointer register)
+ 
+ ![push and pop functionality + registers](push-pop.png)
+ 
+* **you should use push and pop in functions** before jr ra
+* you don't need unless you have a `jal` within a function (a call within a function)
+* if you have multiple function calls, you only need to push/pop once
 
 #### Stack pointer
 * we want to push something on the stack
@@ -134,8 +140,29 @@ fork:
   ```
 * You only have to push/pop ra once in each function!
 * ONLY PUSH/POP REGISTERS AT THE BEGINNINGS AND ENDS OF FUNCTIONS
-  
-### MIPS ISA: ...
+
+# Writing a Function
+
+1. Give it a name (label)
+2. Save **ra** to the stack (`push ra`)
+3. Do whatever
+4. Load **ra** from the stack (`pop ra`)
+5. return (`jr ra`) 
+
+* only need to push/pop registers ar the beginnings 
+* if you need something in t --> save as an s
+
+### Arguments and Return Values
+* v0 is the return
+* we put whatever we want to return in v0 before we `jr ra`
+* caller side:
+
+1. put the arguments in the **a#** register
+2. call the function (w/jal)
+3. if it returns values, look at the **v#** register
+
+* must move stuff from v0 into a0 (return into arguments)
+* if you need to store an a0, save it in an s-register
 
 # Questions
 * How do we keep track of a0?
