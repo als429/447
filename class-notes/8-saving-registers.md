@@ -67,15 +67,27 @@ _exit_func: # this label only applies to this function
 
 # Pseudo-ops - an FYI
 * many of the instructions, don't actually exist
-   * Mars help (f1) "Extended (pseudo) instructions* 
+   * Mars help (f1) "Extended (pseudo) instructions" 
    * they're convenient shorthand for common operations 
 * the assembler translates them in real MIPS
 * the **at register** never touch it
 
-
+**Premature optimization is the worst of all evils**
 
 # Debugging
-* 
-* 
-*
-* 
+* debugging is not just "fixing bugs." It helps you…
+   * …understand your program more deeply.
+   * …question your assumptions about how the computer works.
+   * …consider possible cases you had forgotten to handle.
+* common type: printf debugging
+   * macros!
+* breakpoints
+* step back
+   * debugging usually works backwards!
+   * you see where the program died, but the problem may have occurred much earlier
+   * programs are proofs. one bad step in a proof can ruin something much further down
+ * macros will trash a0 and v0 registers, so push and pop in a macro
+ 
+ # Resources
+ * https://jarrettbillingsley.github.io/teaching/classes/2201/cs0447/
+
