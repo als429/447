@@ -65,12 +65,12 @@ _exit_func: # this label only applies to this function
 	jr   ra
 ```
 
-
-# Pseudo-ops
-* 
-* 
-*
-* 
+# Pseudo-ops - an FYI
+* many of the instructions, don't actually exist
+   * Mars help (f1) "Extended (pseudo) instructions* 
+   * they're convenient shorthand for common operations 
+* the assembler translates them in real MIPS
+* the **at register** never touch it
 
 
 
