@@ -2,7 +2,7 @@
 
 ## Questions
 * what does [x] stand for:
-  * imm
+  * imm = immediate
   * sxt
   * zxt
   * lo16
