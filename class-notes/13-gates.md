@@ -61,6 +61,22 @@
 * how they used to build computers
 
 
+## Logical +
+* + = OR = logical sum
+* no space = AND
 
+## Logisim's wire colors
+* organizes wires according to their kind and state
+* green wire = 1-bit
+* blue wire = carrying X (not one or zero; avoid these) 
+ * when you don't hook up wire to anything
+ * wire is floating
+* red wire = error
+ * fix the bug
+* organge wire = size mismatch
+ * you have a different bug
+ * two things of different bit widths connected together
+* black wires = shorthand wire bundles
+* 
 
  
