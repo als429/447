@@ -77,6 +77,22 @@
  * you have a different bug
  * two things of different bit widths connected together
 * black wires = shorthand wire bundles
-* 
+
+
+# Splitters
+* How we convert between bundles and individual wires
+* get multiple smaller values
+* what hairbrush looking thing is doing
+* can also braid bad together
+
+# When designing circuits
+* a wire can have one output connected
+ * and any number connected inputs
+* tunnel connects wires across distances (NAMED WIRES -> adding [label])
+ * the name of the tunnel is what's important.
+ * any tunnels of the same name are "virtually" connected
+ * give a name to a wire
+* can have spaghetti circuits, they actually look like it
+
 
  
